@@ -1,5 +1,9 @@
 module Roleify
   module RoleifyableController
+    
+    def self.included(base)
+      base.before_filter :allowed?
+    end    
 
     #TODO make deny action configurable, now depends on Clearance
 

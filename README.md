@@ -10,8 +10,8 @@ Example
 
 Make sure your User object has a "role" attribute (String).
 
-Add an initializer containing:
-------------------------------
+Add an initializer
+------------------
 
 Roleify::Role.configure("role_a", "role_b") do
   {
@@ -26,17 +26,16 @@ In the example above "role_a" and "role_b" are the roles you are defining. The b
 * Users with role "role_b" are only allowed to access the index action of the IssuesController.
 * Users with role "admin" are allowed to access all actions of all controllers.
 
-The controller:
----------------
+The controller
+--------------
 
 class IssuesController < ActionController::Base
-  include Roleify::RoleifyableController
   include Clearance::Authentication
-  before_filter :allowed?
+  include Roleify::RoleifyableController
 end
 
-The User model:
----------------
+The User model
+--------------
 
 class User < ActiveRecord::Base
   include Clearance::User
