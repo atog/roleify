@@ -13,12 +13,12 @@ Make sure your User object has a "role" attribute (String).
 Add an initializer
 ------------------
 
-Roleify::Role.configure("role_a", "role_b") do
-  {
-    :role_a => { :issues =>  :all },
-    :role_b => { :issues => "index" }
-  }
-end
+    Roleify::Role.configure("role_a", "role_b") do
+      {
+        :role_a => { :issues =>  :all },
+        :role_b => { :issues => "index" }
+      }
+    end
 
 In the example above "role_a" and "role_b" are the roles you are defining. The block contains the rules for these roles. There is no need to define an "admin" role, since it's added by default.
 
@@ -29,25 +29,25 @@ In the example above "role_a" and "role_b" are the roles you are defining. The b
 The controller
 --------------
 
-class IssuesController < ActionController::Base
-  include Clearance::Authentication
-  include Roleify::RoleifyableController
-end
+    class IssuesController < ActionController::Base
+      include Clearance::Authentication
+      include Roleify::RoleifyableController
+    end
 
 The User model
 --------------
 
-class User < ActiveRecord::Base
-  include Clearance::User
-  include Roleify::RoleifyableModel
-end
+    class User < ActiveRecord::Base
+      include Clearance::User
+      include Roleify::RoleifyableModel
+    end
 
 Extra's
 =======
 
-Constants: Roleify::Role::ADMIN, Roleify::Role::ROLE_A, Roleify::Role::ROLE_B
+Constants: `Roleify::Role::ADMIN`, `Roleify::Role::ROLE_A`, `Roleify::Role::ROLE_B`
 
-Named scopes are automatically added: User.admins, User.role_as, User.role_bs
+Named scopes are automatically added: `User.admins`, `User.role_as`, `User.role_bs`
 
 
 
