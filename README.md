@@ -49,6 +49,8 @@ Constants: `Roleify::Role::ADMIN`, `Roleify::Role::ROLE_A`, `Roleify::Role::ROLE
 
 Named scopes are automatically added: `User.admins`, `User.role_as`, `User.role_bs`
 
+Methods: `User.admin?`, `User.role_a?`, `User.role_b?`
+
 
 
 Copyright (c) 2009 Koen Van der Auwera - 10to1, released under the MIT license
