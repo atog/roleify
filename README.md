@@ -16,8 +16,8 @@ Add an initializer
     Roleify::Role.configure("role_a", "role_b") do
       {
         :role_a => { :issues =>  :all },
-        :role_b => { :issues => "index" }
-				:role_c => { :dashboard_issues => :all }
+        :role_b => { :issues => "index" },
+        :role_c => { :dashboard_issues => :all }
       }
     end
 
