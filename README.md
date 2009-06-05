@@ -44,6 +44,21 @@ The User model
       include Roleify::RoleifyableModel
     end
 
+The Helper
+----------
+
+    module ApplicationHelper
+      include Roleify::RoleifyableHelper
+    end
+
+
+The View
+--------
+
+    <% allowed?(Roleify::Role::ROLE_A) do %>
+      whatever you want for role_a eyes only
+    <% end %>
+
 Extra's
 =======
 
