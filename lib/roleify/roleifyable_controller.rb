@@ -9,7 +9,7 @@ module Roleify
 
     def allowed?
       # action marked 'public', allow access even when not logged in
-      return if actions_for_role(Roleify::Role::RULES[:public]).include?(self.action_name)
+      return if actions_for_role(Roleify::Role::RULES[:public]).try(:include?, self.action_name)
       # no user, no role deny access
       deny_access && return unless current_user && current_user.role
       # admin user, ok
