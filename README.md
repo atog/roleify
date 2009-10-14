@@ -13,7 +13,7 @@ Make sure your User object has a "role" attribute (String).
 Add an initializer
 ------------------
 
-    Roleify::Role.configure("role_a", "role_b") do
+    Roleify::Role.configure(%w(role_a role_b)) do
       {
         :role_a => { :issues =>  :all },
         :role_b => { :issues => "index" },
