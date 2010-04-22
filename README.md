@@ -13,11 +13,13 @@ Make sure your User object has a "role" attribute (String).
 Add an initializer
 ------------------
 
-    Roleify::Role.configure(%w(role_a role_b)) do
+    Roleify::Role.configure(%w(role_a role_b role_c role_d role_e)) do
       {
         :role_a => { :issues =>  :all },
         :role_b => { :issues => "index" },
-        :role_c => { :dashboard_issues => :all }
+        :role_c => { :dashboard_issues => :all },
+        :role_d => { :all => :all },
+        :role_e => { :all => :all, :except => :issues }
       }
     end
 
@@ -26,7 +28,10 @@ In the example above "role\_a", "role\_b" and "role\_c" are the roles you are de
 * Users with role "role\_a" are allowed to access all actions of IssuesController.
 * Users with role "role\_b" are only allowed to access the index action of the IssuesController.
 * Users with role "role\_c" are allowed to access all actions of Dashboard::IssuesController.
+* Users with role "role\_d" are allowed to access all actions of all controllers.
+* Users with role "role\_e" are allowed to access all actions of all controllers except for the actions of the issues controller.
 * Users with role "admin" are allowed to access all actions of all controllers.
+
 
 The controller
 --------------

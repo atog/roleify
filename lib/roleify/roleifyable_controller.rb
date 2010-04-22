@@ -21,7 +21,15 @@ module Roleify
     end
 
     def actions_for_role(rules_for_role)
-      rules_for_role[self.controller_path.gsub("/", "_").to_sym] if rules_for_role
+      if rules_for_role
+        if rules_for_role[:except] && rules_for_role[:except] == self.controller_path.gsub("/", "_").to_sym
+          nil
+        elsif rules_for_role[:all]
+          rules_for_role[:all]
+        else
+          rules_for_role[self.controller_path.gsub("/", "_").to_sym]
+        end
+      end
     end
 
   end
