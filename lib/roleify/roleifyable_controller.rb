@@ -20,18 +20,5 @@ module Roleify
       deny_access
     end
 
-    def actions_for_role(rules_for_role)
-      current_controller = self.controller_path.gsub("/", "_").to_sym
-      if rules_for_role
-        if rules_for_role[:except] && (rules_for_role[:except] == current_controller  || Array(rules_for_role[:except]).include?(current_controller))
-          nil
-        elsif rules_for_role[:all]
-          rules_for_role[:all]
-        else
-          rules_for_role[current_controller]
-        end
-      end
-    end
-
   end
 end
