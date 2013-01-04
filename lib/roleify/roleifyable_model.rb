@@ -6,7 +6,7 @@ module Roleify
 
       if defined? Role::ROLES
         Role::ROLES.each do |role|
-          base.named_scope(role.tableize.to_sym, :conditions => {:role => eval("Role::#{role.upcase}")})
+          base.scope(role.tableize.to_sym, :conditions => {:role => eval("Role::#{role.upcase}")})
 
           define_method("#{role}?") do
             self.role == eval("Role::#{role.upcase}")
